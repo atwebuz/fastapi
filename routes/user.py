@@ -10,7 +10,7 @@ async def fetch_users():
     # Return all users
     return conn.execute(users.select()).fetchall()
 
-@user.post('/')
+@user.post('/create')
 async def create_user(user: User):
     # Insert a new user
     return conn.execute(users.insert().values(name=user.name, email=user.email, password=user.password))
